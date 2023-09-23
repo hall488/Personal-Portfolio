@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Roboto&display=swap');
+
+* {
+    
+    font-family: 'Roboto', sans-serif;
+}
+
+.preload * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;    
+}
+
+.pulldown-text {
+    font-size: 16px;
+    color: whitesmoke;
+    position: absolute;
+    z-index: 1;
+    left: calc(50%);
+    top: 120px;
+    text-align: center;
+    user-select: none;
+}
+
+.pulldown-text2 {
+    font-size: 16px;
+    color: whitesmoke;
+    position: absolute;
+    z-index: 1;
+    left: calc(50% + 15px);
+    top: 165px;
+    text-align: center;
+    user-select: none;
+}
+
+.screen-wrapper {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    transform: translateY(-90%);
+    user-select: none;
+}
+
+.container {
+    height: 100vh;    
+    width: 100vw;
+    position: relative;
+}
+
+.background { 
+    position: absolute;
+    height: 100vh;    
+    width: 100vw;
+    background-color: #3fb152;
+}
+
+.container > * {
+    filter: brightness(100%);
+    transition: filter 1s;
+}
+
+.screen {
+    width: clamp(300px, 90%, 1200px);
+    user-select: none;
+    height: 90%;
+    border: 8px solid black;
+    border-radius: 0px 0px 10px 10px;
+    border-top: none;
+    margin: 0 8px;
+    background-color: whitesmoke;
+}
+
+.inner-wrapper {
+    z-index: 3;
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-screen {
+    
+    width: clamp(200px, 85%, 1100px);
+    height: 65%;
+    display: flex;
+    background-color: whitesmoke;
+    opacity: 0%;
+    border-radius: 10px;
+    transition: opacity 1s;
+    overflow: hidden;
+}
+
+.inner-screen.active {
+    opacity: 100%;
+}
+
+#pulldown {
+    user-select: none;
+    transition: filter 1s;
+}
+
+#circle {
+    cursor:grab;
+}
+
+.clear-line {
+    z-index: 1;
+    width: 100%;
+    clip-path: inset(0 100% 0 0);
+    overflow: hidden;
+    position: absolute;
+    top: calc(50%);
+    border-top: 4px dashed whitesmoke;
+    transition: all 2s linear;
+}
+
+
+.container > #arrow {
+    position: absolute;
+    z-index: 1;
+    left: calc(50% + 20px);
+    top: 57px;
+    user-select: none;
+}
+
+#countdown {
+    z-index: 5;
+    display: none;
+    position: relative;
+    margin: auto;
+    height: 50%;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #countdown-number {
+    color: #3fb152;
+    display: flex;
+    align-items: center;
+    transform: scale(4);
+  }
+  
+  svg.cd {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(-1) rotate(90deg);
+  }
+  
+  .cd  > circle {
+    stroke-dasharray: 113px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: round;
+    stroke-width: 2px;
+    stroke: #3fb152;
+    fill: none;
+    animation: countdown 1.5s linear infinite forwards;
+  }
+  
+  @keyframes countdown {
+    from {
+      stroke-dashoffset: 113px;
+    }
+    to {
+      stroke-dashoffset: 0px;
+    }
+  }
+
+  .hello-sequence {
+    display: none;
+    color:#3fb152;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    overflow: hidden;
+    position: relative;
+    transition: all 1s;
+  }
+
+  .one {
+    text-align: center;
+    font-size: 48px;
+    align-self: center;    
+    transition: transform 1s;    
+  }
+
+  .one > svg {
+    width: 200px;
+  }
+
+  .two {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .two > img {
+    opacity: 0%;
+    width: 300px;
+    height: 300px;
+    border: 10px solid #3fb152;
+    border-radius: 160px;
+    transition: opacity 1s;
+  }
+
+  .two > div {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .dev-text {
+    position: absolute;
+    margin-top: 50px;
+  }
+
+  .dev-text > svg {
+    width: 200px;
+  }
+
+  .arrow {
+    z-index: 1;
+    user-select: none;
+    position: absolute;
+    transform: scaleX(-1) translate(400px, 200px);
+  }
+
+    @keyframes arrowEntry {
+        0% {
+            transform: scaleX(-1) translate(400px, 200px);
+        }
+
+        100% {
+            transform: scaleX(-1) translate(150px, -15px);
+        }
+    }
+
+  @media (max-width: 900px) {
+    .hello-sequence {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .one {
+        font-size: 36px;
+      }     
+    
+      .two {
+        gap: 8px;
+      }
+      .two > img {
+        width: 200px;
+        height: 200px;
+        border-radius: 110px;
+      }
+
+      .two > div {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 16px;
+        width: 200px;
+      }
+
+      @keyframes arrowEntry {
+        0% {
+            transform: scaleX(-1) translate(400px, 200px);
+        }
+
+        100% {
+            transform: scaleX(-1) translate(100px, -15px);
+        }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hello-sequence {
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+    .one {
+        font-size: 18px;
+      }    
+      
+      .one > svg {
+        height: 310px;
+      }
+    
+      .two {
+        gap: 8px;
+      }
+      .two > img {
+        width: 100px;
+        height: 100px;
+        border-radius: 60px;
+      }
+
+      .two > div {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 16px;
+        width: 100px;
+      }
+  }
+
+.projects-sequence {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+}
