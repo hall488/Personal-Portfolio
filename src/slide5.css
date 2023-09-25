@@ -1,0 +1,53 @@
+.connect-sequence {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+    pointer-events: all; 
+}
+
+.connect-text {
+    width: 100%;
+}
+
+.connect-icons {
+    opacity: 0%;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 2s;
+}
+
+a {
+    transition: all 1s;
+}
+
+a:hover {
+    transform: scale(1.2) rotate(360deg);
+}
+
+i {
+    font-size: 100px;
+    transition: all 1s;
+}
+
+i:hover {
+    color:#3fb152 !important; 
+    
+}
+
+.connect-end {
+    width: 100%;
+    position: relative;
+}
+
+.connect-end > svg {
+    position: absolute;
+}
+
+.connect-end:hover {
+    filter: brightness(25%);
+}

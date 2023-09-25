@@ -1,25 +1,30 @@
 import "./style.css";
 import json from "./assets/font.json";
 import Vara from "vara";
-import lobster from "./assets/lobster.jpg";
 
-const container = document.querySelector(".container");
-const pd = document.querySelector("#pulldown");
-const pdCircle = document.querySelector("#circle");
-const sWrapper = document.querySelector(".screen-wrapper");
-const clearLine = document.querySelector(".clear-line");
-const domScreen = document.querySelector(".screen");
-const innerWrapper = document.querySelector(".inner-wrapper");
-const innerScreen = document.querySelector(".inner-screen");
-
-let pdSelected = false;
+import Intro from "./intro";
+import Slide1 from "./slide1";
+import Slide2 from "./slide2";
+import Slide3 from "./slide3";
+import Slide4 from "./slide4";
+import Slide5 from "./slide5";
 
 window.addEventListener("load", () => {
   document.body.classList.remove("preload");
 });
 
 const Screen = () => {
+  const container = document.querySelector(".container");
+  const pd = document.querySelector("#pulldown");
+  const pdCircle = document.querySelector("#circle");
+  const sWrapper = document.querySelector(".screen-wrapper");
+  const clearLine = document.querySelector(".clear-line");
+  const domScreen = document.querySelector(".screen");
+  const innerWrapper = document.querySelector(".inner-wrapper");
+  const innerScreen = document.querySelector(".inner-screen");
+
   //as percentage
+  let pdSelected = false;
   let height = -90;
   let rInterval;
   let eInterval;
@@ -101,7 +106,7 @@ const Screen = () => {
 
   const startVideo = () => {
     //should be 1000 but setting to 10 for debug
-    setTimeout(turnOffLights, 10);
+    setTimeout(turnOffLights, 1000);
   };
 
   const turnOffLights = () => {
@@ -109,7 +114,7 @@ const Screen = () => {
       c.style.filter = "brightness(50%)";
     });
     //should be 1000 but setting to 10 for debug
-    setTimeout(turnOnProjector, 10);
+    setTimeout(turnOnProjector, 1000);
   };
 
   const turnOnProjector = () => {
@@ -120,99 +125,33 @@ const Screen = () => {
       innerScreen.classList.add("active");
     }, 10);
     //should be 500 but setting to 10 for debug
-    setTimeout(timeSequence, 10);
-  };
-
-  const timeSequence = () => {
-    let countdownEl = document.querySelector("#countdown");
-    countdownEl.style.display = "flex";
-    var countdownNumberEl = document.getElementById("countdown-number");
-    var countdown = 3;
-
-    countdownNumberEl.textContent = countdown;
-
-    let cdTimer = setInterval(function () {
-      countdown = --countdown <= 0 ? 3 : countdown;
-
-      countdownNumberEl.textContent = countdown;
-    }, 1500);
-
-    //should be 4500 but setting to 1 for debug
-    setTimeout(() => {
-      clearInterval(cdTimer);
-      helloSequence(countdownEl);
+    setTimeout(async () => {
+      console.log("start of async");
+      // await Intro(innerScreen);
+      // await Slide1(innerScreen);
+      // await Slide2(innerScreen);
+      // await Slide3(innerScreen);
+      // await Slide4(innerScreen);
+      await Slide5(innerScreen);
+      innerScreen.style.opacity = "0%";
+      setTimeout(endPresentation, 1000);
     }, 10);
   };
 
-  const helloSequence = (cdEl) => {
-    cdEl.style.display = "none";
-    const helloEl = document.querySelector(".hello-sequence");
-    helloEl.style.display = "flex";
-    let img = helloEl.querySelector("img");
-    img.src = lobster;
-
+  const endPresentation = () => {
+    [...container.children].forEach((c) => {
+      c.style.filter = "brightness(100%)";
+    });
+    retract(false);
     setTimeout(() => {
-      let helloText = new Vara(
-        ".one",
-        "./assets/font.json",
-        [
-          {
-            text: "Hello! My name is Christopher Hall.",
-            textAlign: "center",
-            width: 225,
-            duration: 2000,
-          },
-        ],
-        {
-          fontSize: 24,
-          strokeWidth: 4,
-          letterSpacing: 2,
-          color: "#3fb152",
-        }
-      );
-
-      helloText.animationEnd(() => {
-        img.style.opacity = "100%";
-        helloEl.querySelector(".arrow").style.animation =
-          "arrowEntry 1s linear 1 forwards";
-        setTimeout(() => {
-          let devText = new Vara(
-            ".dev-text",
-            "./assets/font.json",
-            [
-              {
-                text: "Aspiring Full Stack Developer",
-                textAlign: "center",
-                width: 200,
-                duration: 500,
-              },
-            ],
-            {
-              fontSize: 10,
-              strokeWidth: 4,
-              letterSpacing: 2,
-              color: "#3fb152",
-            }
-          );
-
-          devText.animationEnd(() => {
-            setTimeout(() => {
-              secondslide(helloEl);
-            }, 1500);
-          });
-        }, 1000);
+      [...container.children].forEach((c) => {
+        c.style.opacity = "0%";
       });
-      //helloEl.querySelector(".one").style.transform = "translateX(0px)";
-    }, 500);
-  };
 
-  const secondslide = (helloEl) => {
-    helloEl.style.opacity = "0%";
-    setTimeout(() => {
-      helloEl.style.display = "none";
-      const proj = document.querySelector(".projects-sequence");
-      proj.style.display = "flex";
-    }, 1000);
+      setTimeout(() => {
+        window.location.href = "http://google.com";
+      }, 1000);
+    }, 2000);
   };
 
   const clearRetract = () => {
@@ -222,54 +161,54 @@ const Screen = () => {
 
   const clearExpand = () => {
     clearInterval(eInterval);
-    eInterval = undefined;
+    //eInterval = undefined;
   };
+
+  pdCircle.addEventListener("mousedown", handleDown);
+
+  function handleDown(e) {
+    pdSelected = true;
+    clearRetract();
+  }
+
+  document.addEventListener("mousemove", handleMove);
+
+  function handleMove(e) {
+    if (pdSelected) {
+      setY(
+        -90 +
+          (100 * (e.clientY - pd.getBoundingClientRect().height)) /
+            container.offsetHeight
+      );
+    }
+  }
+
+  document.addEventListener("mouseup", handleUp);
+
+  function handleUp(e) {
+    let wasTrue = pdSelected;
+    pdSelected = false;
+
+    retract(wasTrue);
+  }
+
+  new Vara(
+    ".pulldown-text",
+    "./assets/font.json",
+    [
+      {
+        text: "Pull Down",
+      },
+    ],
+    {
+      fontSize: 24,
+      strokeWidth: 4,
+      letterSpacing: 2,
+      color: "whitesmoke",
+    }
+  );
 
   return { setY, retract, clearRetract };
 };
 
 let screen = Screen();
-
-pdCircle.addEventListener("mousedown", handleDown);
-
-function handleDown(e) {
-  pdSelected = true;
-  screen.clearRetract();
-}
-
-document.addEventListener("mousemove", handleMove);
-
-function handleMove(e) {
-  if (pdSelected) {
-    screen.setY(
-      -90 +
-        (100 * (e.clientY - pd.getBoundingClientRect().height)) /
-          container.offsetHeight
-    );
-  }
-}
-
-document.addEventListener("mouseup", handleUp);
-
-function handleUp(e) {
-  let wasTrue = pdSelected;
-  pdSelected = false;
-
-  screen.retract(wasTrue);
-}
-
-new Vara(
-  ".pulldown-text",
-  "./assets/font.json",
-  [
-    {
-      text: "Pull Down",
-    },
-  ],
-  {
-    fontSize: 24,
-    strokeWidth: 4,
-    letterSpacing: 2,
-    color: "whitesmoke",
-  }
-);

@@ -1,0 +1,32 @@
+
+.skills-sequence {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.my-skills {
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.my-skills > li { 
+    list-style-type: none;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+a {
+    text-decoration: none;
+}
+
+i {
+    padding: 10px;
+    font-size: 75px;
+    color:black
+}

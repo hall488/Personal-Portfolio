@@ -20,7 +20,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        use: "file-loader?name=img/[name].[ext]",
+        use: "file-loader?name=assets/[name].[ext]",
       },
       {
         test: /\.(?:js|mjs|cjs)$/,
@@ -36,12 +36,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "To-Do List",
+      title: "Personal Portfolio",
       template: "./src/index.html",
     }),
     // Plugin for hot module replacement
     new webpack.HotModuleReplacementPlugin(),
-    new CopyWebpackPlugin({ patterns: [{ from: "src/assets", to: "assets" }] }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "src/assets", to: "assets", force: true }],
+    }),
   ],
   output: {
     filename: "[name].bundle.js",
