@@ -133,8 +133,8 @@ const Screen = () => {
       // await Intro(innerScreen);
       // await Slide1(innerScreen);
       //await Slide2(innerScreen);
-      await Slide3(innerScreen);
-      // await Slide4(innerScreen);
+      // await Slide3(innerScreen);
+      await Slide4(innerScreen);
       // await Slide5(innerScreen);
       // innerScreen.style.opacity = "0%";
       // setTimeout(endPresentation, 1000);

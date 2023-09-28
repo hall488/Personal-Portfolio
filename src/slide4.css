@@ -1,5 +1,3 @@
-
-
 .interests-sequence {
     width: 100%;
     display: flex;
@@ -18,39 +16,63 @@
     gap: 20px;
 }
 
-.my-interests > li {
+.my-interests>li {
     width: 350px;
     min-height: 50px;
     display: flex;
     list-style-type: none;
     font-size: 48px;
-    color:#3fb152; 
+    color: #3fb152;
     opacity: 0%;
     transition: opacity 2s;
-    
 }
 
-.mi-li-1 > svg {
+.mi-li-1,
+.mi-li-2,
+.mi-li-3 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.mi-li-1>svg {
     margin-left: 0;
 }
 
-.mi-li-2 > svg {
+.mi-li-2>svg {
     margin-left: auto;
 }
 
-.mi-li-3 > svg {
+.mi-li-3>svg {
     margin-left: 0;
 }
 
-.interests-li-text1, .interests-li-text2, .interests-li-text3 {
+.interests-li-text1,
+.interests-li-text2,
+.interests-li-text3 {
     position: relative;
-    width: 100%;
-    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
-.interests-li-text1 > svg, .interests-li-text2 > svg, .interests-li-text3 > svg {
+.interests-li-text1>svg,
+.interests-li-text2>svg,
+.interests-li-text3>svg {
     position: absolute;
+
+}
+
+@media (max-width: 500px) {
+
+    .interests-li-text1>svg,
+    .interests-li-text2>svg,
+    .interests-li-text3>svg {
+        width: 150px;
+    }
+
+    .my-interests>li {
+        width: 200px;
+    }
 }

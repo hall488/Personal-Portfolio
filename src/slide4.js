@@ -9,6 +9,19 @@ const Slide4 = (innerScreen) => {
   innerScreen.innerHTML = html;
   const myInterests = document.querySelector(".my-interests");
 
+  let textSize;
+  let mobileCheck = window.matchMedia("(max-width: 500px)");
+
+  function handleMobile(e) {
+    if (e.matches) {
+      textSize = 12;
+    } else {
+      textSize = 16;
+    }
+  }
+
+  handleMobile(mobileCheck);
+
   let text = new Vara(
     ".interests-text",
     "./assets/font.json",
@@ -41,7 +54,7 @@ const Slide4 = (innerScreen) => {
       {
         textAlign: "center",
         duration: 2000,
-        fontSize: 16,
+        fontSize: textSize,
         strokeWidth: 4,
         letterSpacing: 2,
         color: "#3fb152",
@@ -69,7 +82,7 @@ const Slide4 = (innerScreen) => {
       {
         textAlign: "center",
         duration: 2000,
-        fontSize: 16,
+        fontSize: textSize,
         strokeWidth: 4,
         letterSpacing: 2,
         color: "#3fb152",
@@ -95,7 +108,7 @@ const Slide4 = (innerScreen) => {
       {
         textAlign: "center",
         duration: 2000,
-        fontSize: 16,
+        fontSize: textSize,
         strokeWidth: 4,
         letterSpacing: 2,
         color: "#3fb152",
