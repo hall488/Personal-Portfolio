@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     gap: 64px;
-    pointer-events: all; 
+    pointer-events: all;
 }
 
 .connect-text {
@@ -23,6 +23,7 @@
 
 a {
     transition: all 1s;
+    text-decoration: none;
 }
 
 a:hover {
@@ -35,8 +36,8 @@ i {
 }
 
 i:hover {
-    color:#3fb152 !important; 
-    
+    color: #3fb152 !important;
+
 }
 
 .connect-end {
@@ -44,7 +45,7 @@ i:hover {
     position: relative;
 }
 
-.connect-end > svg {
+.connect-end>svg {
     position: absolute;
 }
 

@@ -32,7 +32,6 @@ const Screen = () => {
 
   const setY = (val) => {
     height = boundY(val);
-    console.log(height);
     if (
       height >=
       -40 - (100 * pd.getBoundingClientRect().height) / container.offsetHeight
@@ -123,21 +122,19 @@ const Screen = () => {
   const turnOnProjector = () => {
     innerWrapper.style.display = "flex";
     innerWrapper.style.filter = "brightness(100%)";
-    console.log("now");
     setTimeout(() => {
       innerScreen.classList.add("active");
     }, 10);
     //should be 500 but setting to 10 for debug
     setTimeout(async () => {
-      console.log("start of async");
-      // await Intro(innerScreen);
-      // await Slide1(innerScreen);
-      //await Slide2(innerScreen);
-      // await Slide3(innerScreen);
+      await Intro(innerScreen);
+      await Slide1(innerScreen);
+      await Slide2(innerScreen);
+      await Slide3(innerScreen);
       await Slide4(innerScreen);
-      // await Slide5(innerScreen);
-      // innerScreen.style.opacity = "0%";
-      // setTimeout(endPresentation, 1000);
+      await Slide5(innerScreen);
+      innerScreen.style.opacity = "0%";
+      setTimeout(endPresentation, 1000);
     }, 10);
   };
 

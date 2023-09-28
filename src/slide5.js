@@ -35,7 +35,7 @@ const Slide5 = (innerScreen) => {
         "./assets/font.json",
         [
           {
-            text: "Click here to end presentation",
+            text: "Go to Home Webpage",
             textAlign: "center",
             duration: 1000,
           },
