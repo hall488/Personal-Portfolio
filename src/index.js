@@ -149,7 +149,7 @@ const Screen = () => {
       });
 
       setTimeout(() => {
-        window.location.href = "http://google.com";
+        window.location.href = "https://www.christopherh.org/";
       }, 1000);
     }, 2000);
   };
