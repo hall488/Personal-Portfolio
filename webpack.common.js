@@ -20,7 +20,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        use: "file-loader?name=assets/[name].[ext]",
+        type: "asset/resource",
       },
       {
         test: /\.(?:js|mjs|cjs)$/,
@@ -48,6 +48,7 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    assetModuleFilename: "assets/[name][ext]",
     clean: true,
   },
   optimization: {

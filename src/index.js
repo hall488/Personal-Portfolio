@@ -88,6 +88,9 @@ const Screen = () => {
     pdCircle.removeEventListener("mousedown", handleDown);
     document.removeEventListener("mousemove", handleMove);
     document.removeEventListener("mouseup", handleUp);
+    pdCircle.removeEventListener("touchstart", handleDown);
+    document.removeEventListener("touchmove", handleTouchMove);
+    document.removeEventListener("touchend", handleUp);
 
     if (eInterval == undefined) {
       eInterval = setInterval(() => {
@@ -127,11 +130,11 @@ const Screen = () => {
     //should be 500 but setting to 10 for debug
     setTimeout(async () => {
       console.log("start of async");
-      // await Intro(innerScreen);
-      // await Slide1(innerScreen);
-      // await Slide2(innerScreen);
-      // await Slide3(innerScreen);
-      // await Slide4(innerScreen);
+      await Intro(innerScreen);
+      await Slide1(innerScreen);
+      await Slide2(innerScreen);
+      await Slide3(innerScreen);
+      await Slide4(innerScreen);
       await Slide5(innerScreen);
       innerScreen.style.opacity = "0%";
       setTimeout(endPresentation, 1000);
@@ -165,6 +168,7 @@ const Screen = () => {
   };
 
   pdCircle.addEventListener("mousedown", handleDown);
+  pdCircle.addEventListener("touchstart", handleDown);
 
   function handleDown(e) {
     pdSelected = true;
@@ -172,6 +176,7 @@ const Screen = () => {
   }
 
   document.addEventListener("mousemove", handleMove);
+  document.addEventListener("touchmove", handleTouchMove);
 
   function handleMove(e) {
     if (pdSelected) {
@@ -183,7 +188,18 @@ const Screen = () => {
     }
   }
 
+  function handleTouchMove(e) {
+    if (pdSelected) {
+      setY(
+        -90 +
+          (100 * (e.touches[0].pageY - pd.getBoundingClientRect().height)) /
+            container.offsetHeight
+      );
+    }
+  }
+
   document.addEventListener("mouseup", handleUp);
+  document.addEventListener("touchend", handleUp);
 
   function handleUp(e) {
     let wasTrue = pdSelected;

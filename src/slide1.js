@@ -7,7 +7,6 @@ const Slide1 = (innerScreen) => {
   const helloEl = document.querySelector(".hello-sequence");
   helloEl.style.display = "flex";
   let img = helloEl.querySelector("img");
-  img.src = lobster;
 
   return new Promise((resolve) => {
     setTimeout(() => {
