@@ -1,4 +1,3 @@
-
 .skills-sequence {
     display: flex;
     flex-direction: column;
@@ -15,18 +14,20 @@
 }
 
 
-.my-skills > li { 
+.my-skills>li {
     list-style-type: none;
     opacity: 0;
     transition: opacity 1s;
 }
 
-a {
-    text-decoration: none;
-}
-
-i {
+.my-skills>li>i {
     padding: 10px;
     font-size: 75px;
-    color:black
+    color: black
+}
+
+@media (max-width: 500px) {
+    .my-skills>li>i {
+        font-size: 45px;
+    }
 }

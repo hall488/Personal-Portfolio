@@ -3,18 +3,18 @@
     display: none;
     width: 100%;
     height: 100%;
-    color:#3fb152;
+    color: #3fb152;
     flex-direction: column;
     padding: 20px;
     justify-content: center;
 }
 
 .proj-list {
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  gap: 16px;  
-  flex: 0;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+    flex: 0;
 }
 
 .left {
@@ -30,32 +30,34 @@
     justify-content: center;
 }
 
-.proj-text > svg {
+.proj-text>svg {
     width: 400px;
 }
 
-.proj-list > li {
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 16px;
-  justify-content: center;
-  flex: 0;
-  gap: 8px;
+.proj-list>li {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    justify-content: center;
+    flex: 0;
+    gap: 8px;
 }
 
-li > img {
+li>img {
     border: 5px solid #3fb152;
     min-width: 150px;
     min-height: 150px;
     border-radius: 10px;
     width: 100%;
     height: 100%;
+    background-color: whitesmoke;
+    object-fit: contain;
 }
 
 @keyframes slideLeft {
-    0%{
+    0% {
         transform: translateX(calc(100% + 5px));
     }
 
@@ -65,7 +67,7 @@ li > img {
 }
 
 @keyframes slideRight {
-    0%{
+    0% {
         transform: translateX(calc(-178px * 9 - 16px));
     }
 
@@ -74,5 +76,4 @@ li > img {
     }
 }
 
-@media (max-width: 600px) {
-}
+@media (max-width: 600px) {}

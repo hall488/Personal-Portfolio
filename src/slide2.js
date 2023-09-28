@@ -1,5 +1,4 @@
 import html from "./slide2.html";
-import battleship from "./assets/Battleship.jpg";
 import "./slide2.css";
 import Vara from "vara";
 
@@ -18,17 +17,14 @@ const Slide2 = (innerScreen) => {
     setTimeout(() => {
       const proj = document.querySelector(".projects-sequence");
       proj.style.display = "flex";
-      proj.querySelector("img").src = battleship;
 
       let textSize;
       let mobileCheck = window.matchMedia("(max-width: 600px)");
 
       function handleMobile(e) {
         if (e.matches) {
-          console.log("farrt");
-          textSize = 12;
+          textSize = 16;
         } else {
-          console.log("ppo");
           textSize = 24;
         }
       }
@@ -41,7 +37,6 @@ const Slide2 = (innerScreen) => {
         [
           {
             text: "What I have done so far...",
-            width: 800,
             textAlign: "center",
             duration: 2000,
             y: 10,
