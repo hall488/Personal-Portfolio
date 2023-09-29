@@ -170,6 +170,7 @@ const Screen = () => {
   function handleDown(e) {
     pdSelected = true;
     clearRetract();
+    e.preventDefault();
   }
 
   document.addEventListener("mousemove", handleMove);

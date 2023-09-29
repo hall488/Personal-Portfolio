@@ -2,6 +2,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
+}
+
+.skills-text {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.skills-text>svg {
+    width: fit-content;
 }
 
 .my-skills {
