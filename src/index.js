@@ -112,6 +112,7 @@ const Screen = () => {
   };
 
   const turnOffLights = () => {
+    document.querySelector(".skip").style.opacity = "0%";
     [...container.children].forEach((c) => {
       c.style.filter = "brightness(50%)";
     });

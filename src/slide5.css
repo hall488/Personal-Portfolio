@@ -21,21 +21,21 @@
     transition: opacity 2s;
 }
 
-a {
+.connect-icons>a {
     transition: all 1s;
     text-decoration: none;
 }
 
-a:hover {
+.connect-icons>a:hover {
     transform: scale(1.2) rotate(360deg);
 }
 
-i {
+.connect-icons>a>i {
     font-size: 100px;
     transition: all 1s;
 }
 
-i:hover {
+.connect-icons>a>i:hover {
     color: #3fb152 !important;
 
 }
