@@ -76,4 +76,33 @@ li>img {
     }
 }
 
-@media (max-width: 600px) {}
+@media (max-height: 850px) {
+    li>img {
+        min-width: 100px;
+        min-height: 100px;
+    }
+
+    .proj-list>li {
+        font-size: 10px;
+    }
+
+    @keyframes slideLeft {
+        0% {
+            transform: translateX(calc(100% + 5px));
+        }
+
+        100% {
+            transform: translateX(calc(-128px * 9 - 16px));
+        }
+    }
+
+    @keyframes slideRight {
+        0% {
+            transform: translateX(calc(-128px * 9 - 16px));
+        }
+
+        100% {
+            transform: translateX(calc(100% + 5px));
+        }
+    }
+}

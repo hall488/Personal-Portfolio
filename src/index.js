@@ -127,14 +127,14 @@ const Screen = () => {
     }, 10);
     //should be 500 but setting to 10 for debug
     setTimeout(async () => {
-      await Intro(innerScreen);
-      await Slide1(innerScreen);
+      // await Intro(innerScreen);
+      // await Slide1(innerScreen);
       await Slide2(innerScreen);
-      await Slide3(innerScreen);
-      await Slide4(innerScreen);
-      await Slide5(innerScreen);
-      innerScreen.style.opacity = "0%";
-      setTimeout(endPresentation, 1000);
+      // await Slide3(innerScreen);
+      // await Slide4(innerScreen);
+      // await Slide5(innerScreen);
+      // innerScreen.style.opacity = "0%";
+      // setTimeout(endPresentation, 1000);
     }, 10);
   };
 

@@ -302,10 +302,12 @@ svg.cd {
   .hello-sequence {
     flex-direction: column;
     justify-content: flex-start;
+    flex-wrap: nowrap;
   }
 
   .one {
     font-size: 18px;
+    height: 200px;
   }
 
   .one>svg {
