@@ -150,7 +150,7 @@ const Screen = () => {
       });
 
       setTimeout(() => {
-        window.location.href = "https://www.christopherh.org/";
+        window.location.href = "https://ghp.christopherh.org/";
       }, 1000);
     }, 2000);
   };

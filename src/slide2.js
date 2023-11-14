@@ -54,7 +54,7 @@ const Slide2 = (innerScreen) => {
 
       setTimeout(() => {
         resolve("Second Done");
-      }, 12000);
+      }, 13500);
     }, 1000);
   });
 };

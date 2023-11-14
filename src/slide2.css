@@ -22,7 +22,7 @@
 }
 
 .right {
-    transform: translateX(calc(-178px * 9 - 16px));
+    transform: translateX(calc(-178px * 12 - 16px));
 }
 
 .proj-text {
@@ -62,13 +62,13 @@ li>img {
     }
 
     100% {
-        transform: translateX(calc(-178px * 9 - 16px));
+        transform: translateX(calc(-178px * 12 - 16px));
     }
 }
 
 @keyframes slideRight {
     0% {
-        transform: translateX(calc(-178px * 9 - 16px));
+        transform: translateX(calc(-178px * 12 - 16px));
     }
 
     100% {
@@ -92,13 +92,13 @@ li>img {
         }
 
         100% {
-            transform: translateX(calc(-128px * 9 - 16px));
+            transform: translateX(calc(-128px * 12 - 16px));
         }
     }
 
     @keyframes slideRight {
         0% {
-            transform: translateX(calc(-128px * 9 - 16px));
+            transform: translateX(calc(-128px * 12 - 16px));
         }
 
         100% {
